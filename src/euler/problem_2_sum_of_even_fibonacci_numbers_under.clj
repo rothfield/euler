@@ -20,7 +20,3 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms." 
   [z]
   (->> z fibs-not-to-exceed (filter even?) (apply +)))
-(fibs-not-to-exceed 10)
-(assert (= 4613732 (sum-of-even-fibonacci-numbers-under 4000000)))
-(assert (= 44 (sum-of-even-fibonacci-numbers-under 35)))
-(assert (= 10 (sum-of-even-fibonacci-numbers-under 10)))

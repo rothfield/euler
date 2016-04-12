@@ -10,5 +10,3 @@ Find the sum of all the multiples of 3 or 5 below 1000."
   (apply + (clojure.set/union 
             (set (range 3 n 3))
             (set (range 5 n 5)))))
-(assert (= 23 (sum-of-multiples-of-3-and-5-under 10)))
-(assert (= 233168 (sum-of-multiples-of-3-and-5-under 1000)))

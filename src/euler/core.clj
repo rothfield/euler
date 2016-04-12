@@ -9,8 +9,13 @@
 
 (defn -main
   [& args]
-  (println "euler problem 1 answer is " (sum-of-multiples-of-3-and-5-under 1000))
-  (println "euler problem 2 answer is"  (sum-of-even-fibonacci-numbers-under 40000000))
-  (println "euler problem 3 answer is"  (largest-prime-factor 600851475143))
+  (println "problem 1")
+  (println "euler problem 1 answer is " (time (sum-of-multiples-of-3-and-5-under 1000)))
+  (println "problem 2")
+  (println "euler problem 2 answer is"  (time (sum-of-even-fibonacci-numbers-under 40000000)))
+  (println "problem 3")
+  (println "euler problem 3 answer is"  (time (largest-prime-factor 600851475143)))
+  (println "problem 4")
   (println "euler problem 4 answer is" (time (largest-palindromic-number-that-is-product-of-two-three-digit-numbers))))
+
 ;; (-main)

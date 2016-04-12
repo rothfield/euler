@@ -5,9 +5,7 @@
        (< x 1000)))
 
 (defn is-palindromic-number? [x]
-  (let [s (str x)
-        mid (int (/ (count s) 2))]
-    (every? true? (map = (take mid s) (take mid (reverse s))))))
+  (= (vec (str x)) (reverse (vec (str x)))))
 
 (defn decompose-into-two-3-digit-factors [^long x]
   (let [x (int x)]
@@ -22,7 +20,42 @@
         (recur (dec a))))))
 
 (defn largest-palindromic-number-that-is-product-of-two-three-digit-numbers
-  "Largest palindrome product
+  "Algorithm:
+     start with x and y set to the largest 3 digit number and work downwards.
+   Test in this order [999 999] [999 998] etc
+   Then [998 998] [998 997] 
+   But once the product is less than the largest, go on to next x.
+   Also be sure to stop testing x and y when they are no longer 3 digits.
+   If we are going on to next x, if the new product < largest, then we are done
+  "
+  []
+  (loop [largest 0 
+         x 999 
+         y 999]
+    (let [my-product (* x y)]
+      (cond 
+        (< x 100)
+        largest
+        (and (is-palindromic-number? my-product)
+             (> my-product largest))   ;; found a new largest palindromic product
+        (recur my-product ;; new largest
+               (dec x) ;; onto next x
+               (dec x))  ;;999) 
+        (and (< my-product largest)  ;; onto next x
+             (< (* (dec x) 999) largest)) ;; but next x's will never be larger
+        largest
+        (or (< my-product largest)  ;; onto next x
+            (< y 100))
+        (recur largest 
+               (dec x)
+               (dec x)) ;; 999
+        true
+        (recur largest 
+               x
+               (dec y))))))
+
+(defn v1-largest-palindromic-number-that-is-product-of-two-three-digit-numbers
+  "OLD VERSION-about 5 times slower than the version above. Largest palindrome product
 Problem 4
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
