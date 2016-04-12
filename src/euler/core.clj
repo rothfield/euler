@@ -4,7 +4,8 @@
    [euler.problem-2-sum-of-even-fibonacci-numbers-under :refer
     [sum-of-even-fibonacci-numbers-under]]
    [euler.problem-3-largest-prime-factor :refer [largest-prime-factor]]
-   [euler.problem-4-largest-palindrome-product :refer [largest-palindromic-number-that-is-product-of-two-three-digit-numbers is-palindromic-number?]])
+   [euler.problem-4-largest-palindrome-product :refer [largest-palindromic-number-that-is-product-of-two-three-digit-numbers is-palindromic-number?]]
+   [euler.problem-5-smallest-multiple :refer [smallest-multiple]])
   (:gen-class))
 
 (defn -main
@@ -16,6 +17,8 @@
   (println "problem 3")
   (println "euler problem 3 answer is"  (time (largest-prime-factor 600851475143)))
   (println "problem 4")
-  (println "euler problem 4 answer is" (time (largest-palindromic-number-that-is-product-of-two-three-digit-numbers))))
+  (println "euler problem 4 answer is" (time (largest-palindromic-number-that-is-product-of-two-three-digit-numbers)))
+  (println "problem 5")
+  (println "euler problem 5 answer is" (time (smallest-multiple 20))))
 
 ;; (-main)
