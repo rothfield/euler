@@ -1,6 +1,7 @@
 /target
 /classes
 /checkouts
+/attic
 *.swp
 pom.xml
 pom.xml.asc
