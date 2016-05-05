@@ -29,7 +29,8 @@
   "Raise x to the power n"
   [x n]
   (reduce * (repeat n x)))
-
+;;(exp 10 15)
+;;(println (reduce (fn [accum item] (+ accum item)) 0 (range 1 (exp 10 15))))
 (defn smallest-multiple
   "520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
   What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
